@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Machine Interface v0.1</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-robot"></i> The Machine Monitoring System v0.1</h1>
+            <div id="system-status-container">
+                <p>Status: <span id="system-status">Offline</span></p>
+                <div class="indicator offline" id="status-indicator"></div>
+                <label class="switch">
+                    <input type="checkbox" id="system-toggle">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div id="real-time-clock"></div>
+        </header>
+        <nav id="main-nav">
+            <button id="activate-btn" class="primary-btn"><i class="fas fa-power-off"></i> <span
+                    class="btn-text">Activate Machine</span></button>
+            <button id="advanced-monitor-btn" class="secondary-btn"><i class="fas fa-chart-line"></i> <span
+                    class="btn-text">Advanced Monitoring</span></button>
+            <button id="help-btn" class="secondary-btn"><i class="fas fa-question-circle"></i> <span
+                    class="btn-text">Help</span></button>
+        </nav>
+        <div id="mobile-menu-btn"><i class="fas fa-bars"></i></div>
+        <main class="dashboard-grid">
+            <section class="real-time-dashboard">
+                <h2><i class="fas fa-tachometer-alt"></i> Real-Time Dashboard</h2>
+                <div id="real-time-metrics">
+                    <div class="metric">
+                        <h3>Active Threats</h3>
+                        <p id="active-threats">0</p>
+                    </div>
+                    <div class="metric">
+                        <h3>System Start Time</h3>
+                        <p id="system-load">0%</p>
+                    </div>
+                    <div class="metric">
+                        <h3>Alerts Traffic</h3>
+                        <p id="network-traffic">0 Mbps</p>
+                    </div>
+                </div>
+            </section>
+            <section class="map-section">
+                <h2><i class="fas fa-map-marked-alt"></i> Activity Map</h2>
+                <div id="map-container"></div>
+            </section>
+            <section class="analytics-section">
+                <h2><i class="fas fa-chart-bar"></i> Analytics</h2>
+                <div id="analytics-container"></div>
+                <canvas id="analytics-chart"></canvas>
+            </section>
+            <section class="alerts-threats-section">
+                <div class="alert-section">
+                    <h2><i class="fas fa-exclamation-triangle"></i> Current Alerts</h2>
+                    <div id="alerts-container"></div>
+                </div>
+                <div class="threat-section">
+                    <h2><i class="fas fa-shield-alt"></i> Potential Threats</h2>
+                    <div id="threats-container"></div>
+                </div>
+            </section>
+            <section class="log-section">
+                <h2><i class="fas fa-clipboard-list"></i> System Logs</h2>
+                <div id="logs-container"></div>
+            </section>
+            <section class="timeline-section">
+                <h2><i class="fas fa-history"></i> Activity Timeline</h2>
+                <div id="timeline-container"></div>
+            </section>
+
+        </main>
+        <footer>
+            <section class="settings-section">
+                <h2><i class="fas fa-cog"></i> Settings</h2>
+                <div id="settings-container">
+                    <label for="theme-select">Theme:</label>
+                    <select id="theme-select">
+                        <option value="dark">Dark</option>
+                        <option value="light">Light</option>
+                        <option value="high-contrast">High Contrast</option>
+                    </select>
+                    <label for="refresh-rate">Refresh Rate (seconds):</label>
+                    <input type="number" id="refresh-rate" min="1" max="60" value="10">
+                    <label for="font-size">Font Size:</label>
+                    <select id="font-size">
+                        <option value="small">Small</option>
+                        <option value="medium" selected>Medium</option>
+                        <option value="large">Large</option>
+                    </select>
+                </div>
+            </section>
+            <div id="accessibility-controls">
+                <button id="increase-font-size-btn">A+</button>
+                <button id="decrease-font-size-btn">A-</button>
+                <button id="toggle-high-contrast-btn">Toggle High Contrast</button>
+                <button id="toggle-animations-btn">Toggle Animations</button>
+            </div>
+        </footer>
+    </div>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Notifications</h2>
+            <div id="modal-notifications-container"></div>
+        </div>
+    </div>
+    <div id="tooltip" class="tooltip"></div>
+    <div id="help-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Help & Instructions</h2>
+            <div id="help-content"></div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
